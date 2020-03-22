@@ -15,34 +15,37 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
+import {Input, Icon} from 'react-native-elements';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-
-const styles: any = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.lightblue,
+    flex: 1,
+    backgroundColor: 'lightyellow',
   },
 });
 
 interface Props {}
 interface State {
   test: string;
-  test2: any;
+  test2: number;
 }
 
-export default class App extends React.Component {
-  state: any = {
+export default class App extends React.Component<Props, State> {
+  state: State = {
     test: 'ff',
-    test2: 'fff',
+    test2: 213,
   };
 
   render(): JSX.Element {
     return (
-      <SafeAreaView>
-        <View style={styles.container}>
-          <Text>{this.state.test}</Text>
-          <Text>{this.state.test2}</Text>
-        </View>
+      <SafeAreaView style={{flex: 1}}>
+        <ScrollView contentContainerStyle={{flex: 1}}>
+          <View style={styles.container}>
+            <Text>{this.state.test}</Text>
+            <Text>{this.state.test2}</Text>
+            <Input placeholder="fdfdfdf"></Input>
+          </View>
+        </ScrollView>
       </SafeAreaView>
     );
   }
